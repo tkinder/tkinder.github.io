@@ -142,6 +142,11 @@
       font-weight: bold;
     }
 
+    /* Matching label colors */
+    .label.bearish-label { color: #ff4d4d; }
+    .label.neutral-label { color: #ffa500; }
+    .label.bullish-label { color: #4CAF50; }
+
     .probability-bar {
       display: flex;
       height: 24px;
@@ -159,7 +164,7 @@
     }
 
     .segment.neutral {
-      background-color: #cccccc; /* grey for neutral */
+      background-color: #ffa500; /* vibrant orange for neutral */
     }
 
     .segment.bullish {
@@ -296,16 +301,16 @@
       <!-- Updated Probability Gauge with Neutral -->
       <div class="forecast-gauge">
         <div class="labels">
-          <span class="label bearish-label">Bearish (36.70%)</span>
+          <span class="label bearish-label">Bearish (36.43%)</span>
           <span class="label neutral-label">Neutral (${NEUTRAL_PROBABILITY}%)</span>
-          <span class="label bullish-label">Bullish (57.53%)</span>
+          <span class="label bullish-label">Bullish (57.72%)</span>
         </div>
         <div class="probability-bar">
-          <div class="segment bearish" style="width: 36.70%;"></div>
+          <div class="segment bearish" style="width: 36.43%;"></div>
           <div class="segment neutral" style="width: ${NEUTRAL_PROBABILITY}%;"></div>
-          <div class="segment bullish" style="width: 57.53%;"></div>
+          <div class="segment bullish" style="width: 57.72%;"></div>
         </div>
-        <div class="probability-value">57.53%</div>
+        <div class="probability-value">Overall Probability: 57.72%</div>
       </div>
 
       <!-- Key Levels -->
