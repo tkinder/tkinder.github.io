@@ -126,7 +126,7 @@
       color: var(--secondary-color);
     }
 
-    /* Updated Probability Gauge Styles */
+    /* Updated Probability Gauge (Bullish & Bearish only) */
     .forecast-gauge {
       margin: 1rem 0;
     }
@@ -142,15 +142,13 @@
       font-weight: bold;
     }
 
-    /* Matching label colors */
     .label.bearish-label { color: #ff4d4d; }
-    .label.neutral-label { color: #ffa500; }
     .label.bullish-label { color: #4CAF50; }
 
     .probability-bar {
       display: flex;
       height: 24px;
-      background: #f0f0f0;
+      /* Remove gray background so only segments are visible */
       border-radius: 12px;
       overflow: hidden;
     }
@@ -161,10 +159,6 @@
 
     .segment.bearish {
       background-color: #ff4d4d; /* red for bearish */
-    }
-
-    .segment.neutral {
-      background-color: #ffa500; /* vibrant orange for neutral */
     }
 
     .segment.bullish {
@@ -298,19 +292,17 @@
         </div>
       </div>
 
-      <!-- Updated Probability Gauge with Neutral -->
+      <!-- Probability Gauge (Bullish & Bearish Only) -->
       <div class="forecast-gauge">
         <div class="labels">
-          <span class="label bearish-label">Bearish (36.43%)</span>
-          <span class="label neutral-label">Neutral (${NEUTRAL_PROBABILITY}%)</span>
-          <span class="label bullish-label">Bullish (57.72%)</span>
+          <span class="label bearish-label">Bearish (36.31%)</span>
+          <span class="label bullish-label">Bullish (57.95%)</span>
         </div>
         <div class="probability-bar">
-          <div class="segment bearish" style="width: 36.43%;"></div>
-          <div class="segment neutral" style="width: ${NEUTRAL_PROBABILITY}%;"></div>
-          <div class="segment bullish" style="width: 57.72%;"></div>
+          <div class="segment bearish" style="width: 36.31%;"></div>
+          <div class="segment bullish" style="width: 57.95%;"></div>
         </div>
-        <div class="probability-value">Overall Probability: 57.72%</div>
+        <div class="probability-value">Overall Probability: 57.95%</div>
       </div>
 
       <!-- Key Levels -->
