@@ -126,37 +126,51 @@
       color: var(--secondary-color);
     }
 
+    /* Updated Probability Gauge Styles */
     .forecast-gauge {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
       margin: 1rem 0;
-      padding: 1.5rem;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .labels {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+
+    .label {
+      font-size: 1rem;
+      font-weight: bold;
     }
 
     .probability-bar {
+      display: flex;
       height: 24px;
       background: #f0f0f0;
       border-radius: 12px;
       overflow: hidden;
-      flex-grow: 1;
-      margin: 0 1rem;
     }
 
-    .probability-fill {
+    .segment {
       height: 100%;
-      background: linear-gradient(90deg, #4CAF50, #2196F3);
-      width: var(--probability);
-      transition: width 1s ease-in-out;
+    }
+
+    .segment.bearish {
+      background-color: #ff4d4d; /* red for bearish */
+    }
+
+    .segment.neutral {
+      background-color: #cccccc; /* grey for neutral */
+    }
+
+    .segment.bullish {
+      background-color: #4CAF50; /* green for bullish */
     }
 
     .probability-value {
       font-size: 1rem;
       font-weight: bold;
       color: var(--secondary-color);
+      margin-top: 0.5rem;
     }
 
     .key-levels {
@@ -279,14 +293,19 @@
         </div>
       </div>
 
-      <!-- Probability Gauge -->
+      <!-- Updated Probability Gauge with Neutral -->
       <div class="forecast-gauge">
-        <span>Bearish (29.02%)</span>
-        <div class="probability-bar">
-          <div class="probability-fill" style="--probability: 65.95%"></div>
+        <div class="labels">
+          <span class="label bearish-label">Bearish (29.17%)</span>
+          <span class="label neutral-label">Neutral (${NEUTRAL_PROBABILITY}%)</span>
+          <span class="label bullish-label">Bullish (65.77%)</span>
         </div>
-        <span>Bullish (65.95%)</span>
-        <div class="probability-value">65.95%</div>
+        <div class="probability-bar">
+          <div class="segment bearish" style="width: 29.17%;"></div>
+          <div class="segment neutral" style="width: ${NEUTRAL_PROBABILITY}%;"></div>
+          <div class="segment bullish" style="width: 65.77%;"></div>
+        </div>
+        <div class="probability-value">65.77%</div>
       </div>
 
       <!-- Key Levels -->
