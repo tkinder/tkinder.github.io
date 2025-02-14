@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BTC (Bitcoin) Forecasts</title>
   <style>
     :root {
@@ -10,7 +10,6 @@
       --secondary-color: #4a90e2;
       --background-color: #f5f5f5;
     }
-
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
@@ -18,7 +17,6 @@
       background-color: var(--background-color);
       color: var(--primary-color);
     }
-
     .crypto-header {
       background-color: var(--primary-color);
       color: white;
@@ -27,22 +25,18 @@
       align-items: center;
       gap: 1rem;
     }
-
     .crypto-symbol {
       font-size: 2.5rem;
       font-weight: bold;
     }
-
     .crypto-name {
       font-size: 1.5rem;
       opacity: 0.9;
     }
-
     nav {
       background-color: #333;
       padding: 1rem;
     }
-
     nav ul {
       list-style-type: none;
       padding: 0;
@@ -52,7 +46,6 @@
       flex-wrap: wrap;
       gap: 1rem;
     }
-
     nav a {
       color: white;
       text-decoration: none;
@@ -60,37 +53,31 @@
       border-radius: 4px;
       transition: background-color 0.3s;
     }
-
     nav a:hover {
       background-color: var(--secondary-color);
     }
-
     main {
       max-width: 1200px;
       margin: 2rem auto;
       padding: 0 1rem;
     }
-
     .latest-forecast-card {
       background: white;
       border-radius: 8px;
       padding: 2rem;
       margin-bottom: 2rem;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
-
     .forecast-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 1rem;
     }
-
     .forecast-date {
       font-size: 1.2rem;
       color: var(--secondary-color);
     }
-
     .metrics-dashboard {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -99,9 +86,8 @@
       background: white;
       padding: 1.5rem;
       border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
-
     .metric {
       text-align: center;
       padding: 1rem;
@@ -109,69 +95,46 @@
       border-radius: 8px;
       transition: transform 0.3s;
     }
-
     .metric:hover {
       transform: translateY(-2px);
     }
-
     .metric-label {
       font-size: 0.9rem;
       color: #666;
       margin-bottom: 0.5rem;
     }
-
     .metric-value {
       font-size: 1.4rem;
       font-weight: bold;
       color: var(--secondary-color);
     }
-
-    /* Updated Probability Gauge (Bullish & Bearish only) */
-    .forecast-gauge {
-      margin: 1rem 0;
-    }
-
-    .labels {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 0.5rem;
-    }
-
-    .label {
-      font-size: 1rem;
-      font-weight: bold;
-    }
-
-    .label.bearish-label { color: #ff4d4d; }
-    .label.bullish-label { color: #4CAF50; }
-
-    .probability-bar {
-      display: flex;
-      height: 24px;
-      /* Remove gray background so only segments are visible */
-      border-radius: 12px;
+    /* Stacked Probability Gauge */
+    .stacked-gauge {
+      width: 100%;
+      height: 200px; /* Adjust as needed */
+      border: 1px solid #ccc;
+      border-radius: 8px;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
-
-    .segment {
-      height: 100%;
-    }
-
-    .segment.bearish {
-      background-color: #ff4d4d; /* red for bearish */
-    }
-
-    .segment.bullish {
-      background-color: #4CAF50; /* green for bullish */
-    }
-
-    .probability-value {
-      font-size: 1rem;
+    .stacked-gauge .segment {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
       font-weight: bold;
-      color: var(--secondary-color);
-      margin-top: 0.5rem;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     }
-
+    .segment.bullish {
+      background-color: #4CAF50;
+    }
+    .segment.bearish {
+      background-color: #ff4d4d;
+    }
+    .segment.neutral {
+      background-color: #ffa500;
+    }
     .key-levels {
       display: flex;
       justify-content: space-between;
@@ -179,9 +142,8 @@
       padding: 1.5rem;
       background: white;
       border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
-
     .level {
       text-align: center;
       padding: 1rem;
@@ -191,23 +153,19 @@
       margin: 0 0.5rem;
       transition: transform 0.3s;
     }
-
     .level:hover {
       transform: translateY(-2px);
     }
-
     .level-label {
       font-size: 0.9rem;
       color: #666;
       margin-bottom: 0.5rem;
     }
-
     .level-value {
       font-size: 1.4rem;
       font-weight: bold;
       color: var(--secondary-color);
     }
-
     .view-full-forecast {
       display: inline-block;
       margin-top: 1.5rem;
@@ -218,11 +176,9 @@
       border-radius: 4px;
       transition: background-color 0.3s;
     }
-
     .view-full-forecast:hover {
       background-color: #357abd;
     }
-
     footer {
       background-color: var(--primary-color);
       color: white;
@@ -230,18 +186,15 @@
       padding: 1rem;
       margin-top: 2rem;
     }
-
     @media (max-width: 768px) {
       nav ul {
         flex-direction: column;
         align-items: center;
       }
-      
       .key-levels {
         flex-direction: column;
         gap: 1rem;
       }
-
       .level {
         margin: 0;
       }
@@ -253,7 +206,6 @@
     <div class="crypto-symbol">BTC</div>
     <div class="crypto-name">Bitcoin</div>
   </header>
-
   <nav>
     <ul>
       <li><a href="../index.html">Home</a></li>
@@ -264,15 +216,12 @@
       <li><a href="../SOL/index.html">SOL</a></li>
     </ul>
   </nav>
-
   <main>
     <div class="latest-forecast-card">
       <div class="forecast-header">
         <h2>Latest Forecast</h2>
         <div class="forecast-date">2025-02-14</div>
       </div>
-
-      <!-- Metrics Dashboard -->
       <div class="metrics-dashboard">
         <div class="metric">
           <div class="metric-label">Current Price</div>
@@ -291,21 +240,12 @@
           <div class="metric-value">±24.55%</div>
         </div>
       </div>
-
-      <!-- Probability Gauge (Bullish & Bearish Only) -->
-      <div class="forecast-gauge">
-        <div class="labels">
-          <span class="label bearish-label">Bearish (36.31%)</span>
-          <span class="label bullish-label">Bullish (57.95%)</span>
-        </div>
-        <div class="probability-bar">
-          <div class="segment bearish" style="width: 36.31%;"></div>
-          <div class="segment bullish" style="width: 57.95%;"></div>
-        </div>
-        <div class="probability-value">Overall Probability: 57.95%</div>
+      <!-- Stacked Probability Gauge -->
+      <div class="stacked-gauge">
+        <div class="segment bullish" style="height: 57.70%;"><span>Bullish (57.70%)</span></div>
+        <div class="segment bearish" style="height: 36.49%;"><span>Bearish (36.49%)</span></div>
+        <div class="segment neutral" style="height: ${NEUTRAL_PROBABILITY}%;"><span>Neutral (${NEUTRAL_PROBABILITY}%)</span></div>
       </div>
-
-      <!-- Key Levels -->
       <div class="key-levels">
         <div class="level">
           <div class="level-label">Support</div>
@@ -316,13 +256,11 @@
           <div class="level-value">$111889.04</div>
         </div>
       </div>
-
       <a href="2025-02-14.html" class="view-full-forecast">
         View Full Forecast Analysis →
       </a>
     </div>
   </main>
-
   <footer>
     <p>© 2025 Crypto Forecasts. All rights reserved.</p>
   </footer>
