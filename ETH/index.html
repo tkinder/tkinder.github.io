@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ETH (Ethereum) Forecasts</title>
+    <style>
+        /* Existing styles from the original file */
+    </style>
+</head>
+<body>
+    <header class="crypto-header">
+        <div class="crypto-symbol">ETH</div>
+        <div class="crypto-name">Ethereum</div>
+    </header>
+
+    <nav>
+        <!-- Existing navigation from the original file -->
+    </nav>
+
+    <main>
+        <div class="latest-forecast-card">
+            <div class="forecast-header">
+                <h2>Latest Forecast</h2>
+                <div class="forecast-date">${FORECAST_DATE}</div>
+            </div>
+
+            <!-- Metrics Dashboard with placeholders -->
+            <div class="metrics-dashboard">
+                <div class="metric">
+                    <div class="metric-label">Current Price</div>
+                    <div class="metric-value">$2676.25</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-label">21-Day Forecast</div>
+                    <div class="metric-value">$3869.54</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-label">Forecast Range</div>
+                    <div class="metric-value">${FORECAST_RANGE}</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-label">Uncertainty</div>
+                    <div class="metric-value">${FORECAST_UNCERTAINTY}</div>
+                </div>
+            </div>
+
+            <!-- Probability Gauge -->
+            <div class="forecast-gauge">
+                <span>Bearish (${BEARISH_PROBABILITY}%)</span>
+                <div class="probability-bar">
+                    <div class="probability-fill" style="--probability: ${BULLISH_PROBABILITY}%"></div>
+                </div>
+                <span>Bullish (${BULLISH_PROBABILITY}%)</span>
+                <div class="probability-value">56.48%</div>
+            </div>
+
+            <!-- Key Levels -->
+            <div class="key-levels">
+                <div class="level">
+                    <div class="level-label">Support</div>
+                    <div class="level-value">$2169.02</div>
+                </div>
+                <div class="level">
+                    <div class="level-label">Resistance</div>
+                    <div class="level-value">$3428.43</div>
+                </div>
+            </div>
+
+            <a href="${FORECAST_DETAIL_LINK}" class="view-full-forecast">View Full Forecast Analysis →</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 Crypto Forecasts. All rights reserved.</p>
+    </footer>
+</body>
+</html>
